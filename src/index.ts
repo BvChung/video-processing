@@ -1,19 +1,19 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import ffmpeg from "fluent-ffmpeg";
-import chalk from "chalk";
+import pc from "picocolors";
 
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
 	res.status(200).json({ params: req.params, query: req.query });
 });
 
-app.post("/process_video", (req: Request, res: Response) => {
+app.post("/process-video", (req: Request, res: Response) => {
 	const { inputFilePath, outputFilePath } = req.body;
 
 	if (!inputFilePath) {
@@ -39,6 +39,6 @@ app.post("/process_video", (req: Request, res: Response) => {
 
 app.listen(port, () => {
 	console.log(
-		chalk.underline.magenta(`Server running at http://localhost:${port}`)
+		pc.magenta(pc.underline(`Server running at http://localhost:${port}`))
 	);
 });
