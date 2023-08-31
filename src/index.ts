@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import pc from "picocolors";
-import pinoHttp from "pino-http";
 import { setupDirectories } from "./processing-video/processingUtils";
 import processVideoRoute from "./processing-video/route";
 
