@@ -1,14 +1,17 @@
 import { Storage } from "@google-cloud/storage";
 import fs from "fs";
 import ffmpeg from "fluent-ffmpeg";
+import dotenv from "dotenv";
 
 const cloudStorage = new Storage();
+dotenv.config();
 
-const rawVideoBucketName = "bc-bucket-raw-videos";
-const processedVideoBucketName = "bc-bucket-processed-videos";
+const rawVideoBucketName = process.env.RAW_VIDEO_BUCKET as string;
+const processedVideoBucketName = process.env.PROCESSED_VIDEO_BUCKET as string;
 
-const localRawVideoPath = "./raw-videos";
-const localProcessedVideoPath = "./processed-videos";
+const localRawVideoPath = process.env.LOCAL_RAW_VIDEO_PATH as string;
+const localProcessedVideoPath = process.env
+	.LOCAL_PROCESSED_VIDEO_PATH as string;
 
 export function setupDirectories() {
 	ensureDirectoryExistence(localRawVideoPath);
