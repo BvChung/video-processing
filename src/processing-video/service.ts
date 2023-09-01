@@ -3,8 +3,8 @@ import fs from "fs";
 import ffmpeg from "fluent-ffmpeg";
 import dotenv from "dotenv";
 
-const cloudStorage = new Storage();
 dotenv.config();
+const cloudStorage = new Storage();
 
 const rawVideoBucketName = process.env.RAW_VIDEO_BUCKET as string;
 const processedVideoBucketName = process.env.PROCESSED_VIDEO_BUCKET as string;

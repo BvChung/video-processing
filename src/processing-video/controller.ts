@@ -5,7 +5,7 @@ import {
 	deleteRawVideo,
 	downloadRawVideo,
 	uploadProcessedVideo,
-} from "./processingUtils";
+} from "./service";
 
 export async function processVideo(req: Request, res: Response) {
 	// Get the bucket and filename from the Cloud Pub/Sub message
@@ -51,9 +51,3 @@ export async function processVideo(req: Request, res: Response) {
 
 	return res.status(200).send("Processing finished successfully");
 }
-
-export const ping = (req: Request, res: Response) => {
-	res
-		.status(200)
-		.json({ params: req.params, query: req.query, message: "Pong" });
-};

@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { processVideo, ping } from "./controller";
+import { processVideo } from "./controller";
 
 const router = Router();
 
-router.route("/").get(ping).post(processVideo);
+router.route("/").post(processVideo);
 
 export default router;
